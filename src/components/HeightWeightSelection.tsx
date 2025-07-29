@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Switch } from "./components/ui/switch"; // Assuming this path is correct for shadcn/ui Switch
+import { Switch } from "./ui/switch";
 
 interface HeightWeightSelectionProps {
   onComplete: (data: { height: string; weight: string; unit: string }) => void;
