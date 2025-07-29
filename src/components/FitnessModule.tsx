@@ -125,51 +125,98 @@ export const FitnessModule = () => {
   };
 
   if (step === 'plan') {
+    const [selectedDay, setSelectedDay] = useState('Tue');
+    
     return (
-      <div className="p-6 space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-gray-900">Weekly Plan</h2>
-          {showWeeklyScanner && (
-            <button
-              onClick={() => setStep('upload-current')}
-              className="p-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors"
-            >
-              <Scan className="w-5 h-5" />
-            </button>
-          )}
+      <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
+        {/* Header */}
+        <div className="space-y-1">
+          <p className="text-gray-500 text-sm">Hi, Alberto</p>
+          <h1 className="text-2xl font-bold text-gray-900">LET'S KICK OFF YOUR DAY</h1>
         </div>
 
-        {/* Weekly Workout Plan */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-          <div className="flex items-center space-x-2 mb-4">
-            <Dumbbell className="w-5 h-5 text-gray-700" />
-            <h3 className="text-lg font-semibold text-gray-900">This Week's Workouts</h3>
+        {/* Your Plan Section */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">Your Plan</h2>
+            <div className="flex items-center space-x-4">
+              <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
+              {showWeeklyScanner && (
+                <button
+                  onClick={() => setStep('upload-current')}
+                  className="p-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  <Scan className="w-4 h-4" />
+                </button>
+              )}
+            </div>
           </div>
-          <div className="space-y-3">
-            {weeklyPlan.slice(0, 3).map((day, index) => (
-              <div key={index} className={`p-4 rounded-xl border ${
-                day.completed ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'
-              }`}>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium ${
-                      day.completed ? 'bg-green-500 text-white' : 'bg-gray-300 text-gray-600'
-                    }`}>
-                      {day.day}
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">{day.workout}</div>
-                      <div className="text-sm text-gray-600">{day.duration}</div>
-                    </div>
-                  </div>
-                  {day.completed && <Award className="w-5 h-5 text-green-500" />}
+
+          {/* Days Sidebar + Workout Cards Layout */}
+          <div className="flex space-x-4">
+            {/* Days Sidebar */}
+            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 min-w-[80px]">
+              {weeklyPlan.map((day) => (
+                <button
+                  key={day.day}
+                  onClick={() => setSelectedDay(day.day)}
+                  className={`flex flex-col items-center py-3 px-2 rounded-xl transition-colors ${
+                    selectedDay === day.day 
+                      ? 'bg-pink-500 text-white' 
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  <span className="text-xs font-medium">{day.day}</span>
+                  <div className={`w-1.5 h-1.5 rounded-full mt-1 ${
+                    day.completed 
+                      ? 'bg-green-400' 
+                      : selectedDay === day.day 
+                        ? 'bg-white' 
+                        : 'bg-gray-500'
+                  }`} />
+                </button>
+              ))}
+            </div>
+
+            {/* Workout Cards */}
+            <div className="flex-1 flex space-x-4 overflow-x-auto">
+              {/* Main Workout Card */}
+              <div className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-black/20" />
+                <img 
+                  src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
+                  alt="Workout"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70"
+                />
+                <div className="absolute top-4 left-4 flex space-x-2">
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                    Easy
+                  </span>
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                    Boxing
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-bold mb-1">JAB AND STRAIGHT</h3>
+                  <p className="text-sm opacity-90">15 mins</p>
                 </div>
               </div>
-            ))}
+
+              {/* Additional Workout Card */}
+              <div className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute top-4 left-4 flex space-x-2">
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                    Med
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-bold mb-1">ADVANCED HOOKS</h3>
+                  <p className="text-sm opacity-90">20 mins</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <button className="w-full mt-4 text-black font-medium py-2 text-sm">
-            View Full Week →
-          </button>
         </div>
       </div>
     );
