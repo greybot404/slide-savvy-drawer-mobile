@@ -141,22 +141,22 @@ const Index = () => {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="bg-white border-t border-gray-200">
-        <div className="flex items-center justify-around px-2 py-2">
+      <nav className="bg-white border-t border-gray-200 px-4 py-3">
+        <div className="flex items-center justify-between">
           {bottomNavItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveModule(item.id)}
-              className={`flex flex-col items-center space-y-1 py-3 px-4 rounded-xl transition-all duration-200 ${
+              className={`flex flex-col items-center space-y-1 p-3 transition-all duration-200 ${
                 activeModule === item.id
-                  ? 'bg-black text-white'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  ? 'bg-black text-white rounded-full px-4 py-2'
+                  : 'text-gray-600 hover:text-gray-800'
               }`}
             >
               <div className="w-6 h-6 flex items-center justify-center">
                 <item.icon className="w-5 h-5" />
               </div>
-              <span className="text-xs font-medium">
+              <span className="text-xs font-medium mt-1">
                 {item.label}
               </span>
             </button>
