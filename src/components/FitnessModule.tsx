@@ -9,6 +9,7 @@ export const FitnessModule = () => {
   const [showWeeklyScanner, setShowWeeklyScanner] = useState(true); // Shows once per week
   const [showGoalWarning, setShowGoalWarning] = useState(false);
   const [photoConfirmation, setPhotoConfirmation] = useState(false);
+  const [selectedDay, setSelectedDay] = useState('Tue');
 
   const weeklyPlan = [
     { day: "Mon", workout: "Push Day (Chest, Shoulders, Triceps)", duration: "45 min", exercises: ["Bench Press 4x8", "Shoulder Press 3x10", "Tricep Dips 3x12"], completed: true },
@@ -125,8 +126,6 @@ export const FitnessModule = () => {
   };
 
   if (step === 'plan') {
-    const [selectedDay, setSelectedDay] = useState('Tue');
-    
     return (
       <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
         {/* Header */}
