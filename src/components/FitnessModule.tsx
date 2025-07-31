@@ -192,24 +192,24 @@ export const FitnessModule = () => {
               {/* Main Workout Card */}
               <button 
                 onClick={handleWorkoutClick}
-                className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer"
+                className="relative min-w-[320px] h-[220px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0"
               >
                 <div className="absolute inset-0 bg-black/20" />
                 <img 
-                  src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
-                  alt="Workout"
-                  className="absolute inset-0 w-full h-full object-cover opacity-70"
+                  src="/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png"
+                  alt="Jab and Straight workout"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute top-4 left-4 flex space-x-2">
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
                     Easy
                   </span>
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
                     Boxing
                   </span>
                 </div>
                 <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-bold mb-1">JAB AND STRAIGHT</h3>
+                  <h3 className="text-2xl font-bold mb-1">JAB AND STRAIGHT</h3>
                   <p className="text-sm opacity-90">15 mins</p>
                 </div>
               </button>
