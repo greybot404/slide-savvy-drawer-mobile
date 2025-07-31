@@ -127,6 +127,7 @@ export const FitnessModule = () => {
   };
 
   const handleWorkoutClick = () => {
+    console.log('Workout click triggered, changing step to workout-detail');
     setStep('workout-detail');
   };
 
