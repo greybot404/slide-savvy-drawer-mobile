@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Upload, Camera, Target, Calendar, TrendingUp, Award, DollarSign, Utensils, Pill, Dumbbell, Scan, AlertTriangle } from "lucide-react";
+import { WorkoutDetail } from "./WorkoutDetail";
 
 export const FitnessModule = () => {
-  const [step, setStep] = useState<'plan' | 'upload-current' | 'upload-goal' | 'goal-options' | 'results'>('plan');
+  const [step, setStep] = useState<'plan' | 'upload-current' | 'upload-goal' | 'goal-options' | 'results' | 'workout-detail'>('plan');
   const [currentPhoto, setCurrentPhoto] = useState<string | null>(null);
   const [goalPhoto, setGoalPhoto] = useState<string | null>(null);
   const [selectedGoal, setSelectedGoal] = useState<string | null>(null);
@@ -125,6 +126,14 @@ export const FitnessModule = () => {
     setStep('results');
   };
 
+  const handleWorkoutClick = () => {
+    setStep('workout-detail');
+  };
+
+  if (step === 'workout-detail') {
+    return <WorkoutDetail onBack={() => setStep('plan')} />;
+  }
+
   if (step === 'plan') {
     return (
       <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
@@ -180,7 +189,10 @@ export const FitnessModule = () => {
             {/* Workout Cards */}
             <div className="flex-1 flex space-x-4 overflow-x-auto">
               {/* Main Workout Card */}
-              <div className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden">
+              <button 
+                onClick={handleWorkoutClick}
+                className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer"
+              >
                 <div className="absolute inset-0 bg-black/20" />
                 <img 
                   src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
@@ -199,7 +211,7 @@ export const FitnessModule = () => {
                   <h3 className="text-xl font-bold mb-1">JAB AND STRAIGHT</h3>
                   <p className="text-sm opacity-90">15 mins</p>
                 </div>
-              </div>
+              </button>
 
               {/* Additional Workout Card */}
               <div className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl overflow-hidden">
