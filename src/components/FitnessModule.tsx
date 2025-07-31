@@ -217,6 +217,52 @@ export const FitnessModule = () => {
             </div>
           </div>
         </div>
+
+        {/* Collections Section */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">Collections</h2>
+            <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
+          </div>
+
+          <div className="flex space-x-4 overflow-x-auto">
+            {/* BASICS Collection */}
+            <div className="relative min-w-[200px] h-[160px] bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-black/20" />
+              <img 
+                src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
+                alt="Basics workout"
+                className="absolute inset-0 w-full h-full object-cover opacity-70"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                  Easy
+                </span>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-lg font-bold">BASICS</h3>
+              </div>
+            </div>
+
+            {/* BOXING Collection */}
+            <div className="relative min-w-[200px] h-[160px] bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-black/20" />
+              <img 
+                src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
+                alt="Boxing workout"
+                className="absolute inset-0 w-full h-full object-cover opacity-70"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
+                  Medium
+                </span>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-lg font-bold">BOXING</h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
