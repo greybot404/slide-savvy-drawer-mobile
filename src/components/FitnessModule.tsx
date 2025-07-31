@@ -192,7 +192,7 @@ export const FitnessModule = () => {
               {/* Main Workout Card */}
               <button 
                 onClick={handleWorkoutClick}
-                className="relative min-w-[320px] h-[220px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0"
+                className="relative min-w-[320px] h-[220px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0 border-2 border-pink-500"
               >
                 <div className="absolute inset-0 bg-black/20" />
                 <img 
