@@ -13,13 +13,13 @@ export const FitnessModule = () => {
   const [selectedDay, setSelectedDay] = useState('Tue');
 
   const weeklyPlan = [
-    { day: "Mon", workout: "Push Day (Chest, Shoulders, Triceps)", duration: "45 min", exercises: ["Bench Press 4x8", "Shoulder Press 3x10", "Tricep Dips 3x12"], completed: true },
-    { day: "Tue", workout: "Pull Day (Back, Biceps)", duration: "40 min", exercises: ["Pull-ups 4x6", "Barbell Rows 3x10", "Bicep Curls 3x12"], completed: true },
-    { day: "Wed", workout: "Legs & Core", duration: "50 min", exercises: ["Squats 4x10", "Deadlifts 3x8", "Plank 3x60s"], completed: false },
-    { day: "Thu", workout: "Push Day", duration: "45 min", exercises: ["Incline Press 4x8", "Lateral Raises 3x12", "Close-grip Press 3x10"], completed: false },
-    { day: "Fri", workout: "Pull Day", duration: "40 min", exercises: ["Lat Pulldowns 4x10", "Cable Rows 3x12", "Hammer Curls 3x10"], completed: false },
-    { day: "Sat", workout: "Cardio & Abs", duration: "30 min", exercises: ["HIIT Cardio 20min", "Russian Twists 3x20", "Mountain Climbers 3x30"], completed: false },
-    { day: "Sun", workout: "Active Recovery", duration: "20 min", exercises: ["Light Walk", "Stretching", "Foam Rolling"], completed: false },
+    { day: "Mon", workout: "Morning Stretch", duration: "10 mins", difficulty: "Easy", type: "Flexibility", completed: false },
+    { day: "Tue", workout: "Jab and Straight", duration: "15 mins", difficulty: "Easy", type: "Boxing", completed: false },
+    { day: "Wed", workout: "Core Blast", duration: "20 mins", difficulty: "Medium", type: "Strength", completed: false },
+    { day: "Thu", workout: "Cardio HIIT", duration: "25 mins", difficulty: "Hard", type: "Cardio", completed: false },
+    { day: "Fri", workout: "Upper Body", duration: "30 mins", difficulty: "Medium", type: "Strength", completed: false },
+    { day: "Sat", workout: "Yoga Flow", duration: "45 mins", difficulty: "Easy", type: "Flexibility", completed: false },
+    { day: "Sun", workout: "Rest Day", duration: "Recovery", difficulty: "Rest", type: "Recovery", completed: false },
   ];
 
   const supplementStack = [
@@ -187,46 +187,65 @@ export const FitnessModule = () => {
               ))}
             </div>
 
-            {/* Workout Cards */}
-            <div className="flex-1 flex space-x-4 overflow-x-auto">
-              {/* Main Workout Card */}
-              <button 
-                onClick={handleWorkoutClick}
-                className="relative min-w-[320px] h-[220px] bg-gradient-to-br from-gray-700 to-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0 border-2 border-pink-500"
-              >
-                <div className="absolute inset-0 bg-black/20" />
-                <img 
-                  src="/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png"
-                  alt="Jab and Straight workout"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80"
-                />
-                <div className="absolute top-4 left-4 flex space-x-2">
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-                    Easy
-                  </span>
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-                    Boxing
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl font-bold mb-1">JAB AND STRAIGHT</h3>
-                  <p className="text-sm opacity-90">15 mins</p>
-                </div>
-              </button>
+            {/* Dynamic Workout Card Based on Selected Day */}
+            <div className="flex-1">
+              {(() => {
+                const selectedWorkout = weeklyPlan.find(day => day.day === selectedDay);
+                if (!selectedWorkout) return null;
+                
+                if (selectedWorkout.workout === "Rest Day") {
+                  return (
+                    <div className="relative w-full h-[220px] bg-gradient-to-br from-green-500 to-green-700 rounded-2xl overflow-hidden flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/20" />
+                      <div className="text-center text-white z-10">
+                        <h3 className="text-3xl font-bold mb-2">REST DAY</h3>
+                        <p className="text-lg opacity-90">Recovery & Relaxation</p>
+                      </div>
+                    </div>
+                  );
+                }
 
-              {/* Additional Workout Card */}
-              <div className="relative min-w-[280px] h-[200px] bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-black/20" />
-                <div className="absolute top-4 left-4 flex space-x-2">
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
-                    Med
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-bold mb-1">ADVANCED HOOKS</h3>
-                  <p className="text-sm opacity-90">20 mins</p>
-                </div>
-              </div>
+                const getWorkoutGradient = (type: string) => {
+                  switch (type) {
+                    case "Boxing": return "from-gray-700 to-gray-900";
+                    case "Flexibility": return "from-purple-600 to-purple-800";
+                    case "Strength": return "from-red-600 to-red-800";
+                    case "Cardio": return "from-orange-600 to-orange-800";
+                    default: return "from-gray-700 to-gray-900";
+                  }
+                };
+
+                const getWorkoutImage = (type: string) => {
+                  if (type === "Boxing") return "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png";
+                  return "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png";
+                };
+
+                return (
+                  <button 
+                    onClick={handleWorkoutClick}
+                    className={`relative w-full h-[220px] bg-gradient-to-br ${getWorkoutGradient(selectedWorkout.type)} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer`}
+                  >
+                    <div className="absolute inset-0 bg-black/20" />
+                    <img 
+                      src={getWorkoutImage(selectedWorkout.type)}
+                      alt={`${selectedWorkout.workout} workout`}
+                      className="absolute inset-0 w-full h-full object-cover opacity-80"
+                    />
+                    <div className="absolute top-4 left-4 flex space-x-2">
+                      <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
+                        {selectedWorkout.difficulty}
+                      </span>
+                      <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
+                        {selectedWorkout.type}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-2xl font-bold mb-1">{selectedWorkout.workout.toUpperCase()}</h3>
+                      <p className="text-sm opacity-90">{selectedWorkout.duration}</p>
+                    </div>
+                  </button>
+                );
+              })()}
             </div>
           </div>
         </div>
@@ -483,11 +502,11 @@ export const FitnessModule = () => {
                 {day.completed && <Award className="w-5 h-5 text-green-500" />}
               </div>
               <div className="ml-11">
-                <ul className="text-sm text-gray-600 space-y-1">
-                  {day.exercises.map((exercise, idx) => (
-                    <li key={idx}>• {exercise}</li>
-                  ))}
-                </ul>
+                <div className="text-sm text-gray-600">
+                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-gray-200 text-gray-700">
+                    {day.difficulty} • {day.type}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
