@@ -164,19 +164,19 @@ export const FitnessModule = () => {
           {/* Days Sidebar + Workout Cards Layout */}
           <div className="flex space-x-4">
             {/* Days Sidebar */}
-            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 w-[80px] h-[280px]">
+            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col justify-center space-y-3 w-[120px] h-[220px]">
               {weeklyPlan.map((day) => (
                 <button
                   key={day.day}
                   onClick={() => setSelectedDay(day.day)}
-                  className={`flex flex-col items-center py-3 px-2 rounded-xl transition-colors ${
+                  className={`flex flex-col items-center py-2 px-2 rounded-xl transition-colors ${
                     selectedDay === day.day 
                       ? 'bg-pink-500 text-white' 
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
                   <span className="text-xs font-medium">{day.day}</span>
-                  <div className={`w-1.5 h-1.5 rounded-full mt-1 ${
+                  <div className={`w-2 h-2 rounded-full mt-1 ${
                     day.completed 
                       ? 'bg-green-400' 
                       : selectedDay === day.day 
@@ -188,14 +188,14 @@ export const FitnessModule = () => {
             </div>
 
             {/* Dynamic Workout Card Based on Selected Day */}
-            <div className="w-[calc(100%-96px)]">
+            <div className="flex-1">
               {(() => {
                 const selectedWorkout = weeklyPlan.find(day => day.day === selectedDay);
                 if (!selectedWorkout) return null;
                 
                 if (selectedWorkout.workout === "Rest Day") {
                   return (
-                    <div className="relative w-full h-[280px] bg-gradient-to-br from-green-500 to-green-700 rounded-2xl overflow-hidden flex items-center justify-center">
+                    <div className="relative w-full h-[220px] bg-gradient-to-br from-green-500 to-green-700 rounded-2xl overflow-hidden flex items-center justify-center">
                       <div className="absolute inset-0 bg-black/20" />
                       <div className="text-center text-white z-10">
                         <h3 className="text-3xl font-bold mb-2">REST DAY</h3>
@@ -223,7 +223,7 @@ export const FitnessModule = () => {
                 return (
                   <button 
                     onClick={handleWorkoutClick}
-                    className={`relative w-full h-[280px] bg-gradient-to-br ${getWorkoutGradient(selectedWorkout.type)} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer`}
+                    className={`relative w-full h-[220px] bg-gradient-to-br ${getWorkoutGradient(selectedWorkout.type)} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer`}
                   >
                     <div className="absolute inset-0 bg-black/20" />
                     <img 
