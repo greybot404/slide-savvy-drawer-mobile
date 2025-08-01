@@ -164,7 +164,7 @@ export const FitnessModule = () => {
           {/* Days Sidebar + Workout Cards Layout */}
           <div className="flex space-x-4">
             {/* Days Sidebar */}
-            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 w-[80px]">
+            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 w-[80px] h-[220px]">
               {weeklyPlan.map((day) => (
                 <button
                   key={day.day}
