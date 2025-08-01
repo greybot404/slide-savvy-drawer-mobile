@@ -164,7 +164,7 @@ export const FitnessModule = () => {
           {/* Days Sidebar + Workout Cards Layout */}
           <div className="flex space-x-4">
             {/* Days Sidebar */}
-            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 w-[80px]">
+            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 w-[80px] h-[280px]">
               {weeklyPlan.map((day) => (
                 <button
                   key={day.day}
@@ -195,7 +195,7 @@ export const FitnessModule = () => {
                 
                 if (selectedWorkout.workout === "Rest Day") {
                   return (
-                    <div className="relative w-full h-[220px] bg-gradient-to-br from-green-500 to-green-700 rounded-2xl overflow-hidden flex items-center justify-center">
+                    <div className="relative w-full h-[280px] bg-gradient-to-br from-green-500 to-green-700 rounded-2xl overflow-hidden flex items-center justify-center">
                       <div className="absolute inset-0 bg-black/20" />
                       <div className="text-center text-white z-10">
                         <h3 className="text-3xl font-bold mb-2">REST DAY</h3>
@@ -223,7 +223,7 @@ export const FitnessModule = () => {
                 return (
                   <button 
                     onClick={handleWorkoutClick}
-                    className={`relative w-full h-[220px] bg-gradient-to-br ${getWorkoutGradient(selectedWorkout.type)} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer`}
+                    className={`relative w-full h-[280px] bg-gradient-to-br ${getWorkoutGradient(selectedWorkout.type)} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer`}
                   >
                     <div className="absolute inset-0 bg-black/20" />
                     <img 
