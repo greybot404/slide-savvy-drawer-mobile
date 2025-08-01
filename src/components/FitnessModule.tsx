@@ -164,7 +164,7 @@ export const FitnessModule = () => {
           {/* Days Sidebar + Workout Cards Layout */}
           <div className="flex space-x-4">
             {/* Days Sidebar */}
-            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 min-w-[80px]">
+            <div className="bg-gray-800 rounded-2xl p-4 flex flex-col space-y-3 w-[80px]">
               {weeklyPlan.map((day) => (
                 <button
                   key={day.day}
@@ -188,7 +188,7 @@ export const FitnessModule = () => {
             </div>
 
             {/* Dynamic Workout Card Based on Selected Day */}
-            <div className="flex-1">
+            <div className="w-[calc(100%-96px)]">
               {(() => {
                 const selectedWorkout = weeklyPlan.find(day => day.day === selectedDay);
                 if (!selectedWorkout) return null;
