@@ -22,6 +22,121 @@ export const FitnessModule = () => {
     { day: "Sun", workout: "Rest Day", duration: "Recovery", difficulty: "Rest", type: "Recovery", completed: false },
   ];
 
+  const dailyWorkouts = {
+    "Mon": [
+      {
+        title: "Morning Stretch & Flow",
+        duration: "20 mins",
+        tags: ["Easy", "Flexibility"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-green-500 to-teal-600"
+      },
+      {
+        title: "Light Cardio Walk",
+        duration: "30 mins",
+        tags: ["Easy", "Cardio"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-blue-500 to-cyan-600"
+      }
+    ],
+    "Tue": [
+      {
+        title: "Push Day: Chest & Triceps",
+        duration: "60 mins",
+        tags: ["Medium", "Strength"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-blue-600 to-blue-800"
+      },
+      {
+        title: "Boxing Fundamentals",
+        duration: "45 mins",
+        tags: ["Easy", "Boxing"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-red-600 to-orange-700"
+      }
+    ],
+    "Wed": [
+      {
+        title: "Core Blast & Abs",
+        duration: "40 mins",
+        tags: ["Medium", "Core"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-purple-600 to-purple-800"
+      },
+      {
+        title: "Functional Movement",
+        duration: "35 mins",
+        tags: ["Medium", "Functional"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-indigo-600 to-purple-700"
+      }
+    ],
+    "Thu": [
+      {
+        title: "HIIT Cardio Blast",
+        duration: "45 mins",
+        tags: ["Hard", "Cardio"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-red-600 to-pink-700"
+      },
+      {
+        title: "Sprint Intervals",
+        duration: "25 mins",
+        tags: ["Hard", "Speed"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-orange-600 to-red-600"
+      }
+    ],
+    "Fri": [
+      {
+        title: "Pull Day: Back & Biceps",
+        duration: "65 mins",
+        tags: ["Medium", "Strength"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-green-600 to-emerald-700"
+      },
+      {
+        title: "Upper Body Power",
+        duration: "50 mins",
+        tags: ["Hard", "Power"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-slate-600 to-gray-800"
+      }
+    ],
+    "Sat": [
+      {
+        title: "Leg Day: Quads & Glutes",
+        duration: "70 mins",
+        tags: ["Hard", "Legs"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-yellow-600 to-orange-700"
+      },
+      {
+        title: "Lower Body Burn",
+        duration: "55 mins",
+        tags: ["Medium", "Strength"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-amber-600 to-yellow-700"
+      }
+    ],
+    "Sun": [
+      {
+        title: "Recovery Yoga",
+        duration: "60 mins",
+        tags: ["Easy", "Recovery"],
+        image: "/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png",
+        gradient: "from-teal-500 to-green-600"
+      },
+      {
+        title: "Meditation & Stretch",
+        duration: "30 mins",
+        tags: ["Easy", "Mindfulness"],
+        image: "/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png",
+        gradient: "from-sky-500 to-blue-600"
+      }
+    ]
+  };
+
   const supplementStack = [
     { name: "Whey Protein", dosage: "25g post-workout", cost: "$0.80/day", benefit: "Muscle recovery & growth" },
     { name: "Creatine Monohydrate", dosage: "5g daily", cost: "$0.15/day", benefit: "Strength & power increase" },
@@ -191,52 +306,31 @@ export const FitnessModule = () => {
 
               {/* Workout Cards */}
               <div className="flex space-x-4 overflow-x-auto">
-                {/* Card 1: Push Day */}
-                <button 
-                  onClick={handleWorkoutClick}
-                  className="relative min-w-[280px] h-[180px] bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0"
-                >
-                  <div className="absolute inset-0 bg-black/20" />
-                  <img 
-                    src="/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png"
-                    alt="Push day workout"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                  />
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-                      Easy
-                    </span>
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-                      Strength
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold mb-1">Push Day: Chest & Triceps</h3>
-                    <p className="text-sm opacity-90">60 mins</p>
-                  </div>
-                </button>
-
-                {/* Card 2: Pull Day */}
-                <button 
-                  onClick={handleWorkoutClick}
-                  className="relative min-w-[280px] h-[180px] bg-gradient-to-br from-green-600 to-green-800 rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0"
-                >
-                  <div className="absolute inset-0 bg-black/20" />
-                  <img 
-                    src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
-                    alt="Pull day workout"
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                  />
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-                      Cardio
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold mb-1">HIIT Cardio Blast</h3>
-                    <p className="text-sm opacity-90">45 mins</p>
-                  </div>
-                </button>
+                {dailyWorkouts[selectedDay]?.map((workout, index) => (
+                  <button 
+                    key={index}
+                    onClick={handleWorkoutClick}
+                    className={`relative min-w-[280px] h-[180px] bg-gradient-to-br ${workout.gradient} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
+                  >
+                    <div className="absolute inset-0 bg-black/20" />
+                    <img 
+                      src={workout.image}
+                      alt={workout.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-80"
+                    />
+                    <div className="absolute top-4 left-4 flex space-x-2">
+                      {workout.tags.map((tag, tagIndex) => (
+                        <span key={tagIndex} className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h3 className="text-xl font-bold mb-1">{workout.title}</h3>
+                      <p className="text-sm opacity-90">{workout.duration}</p>
+                    </div>
+                  </button>
+                ))}
               </div>
             </div>
 
