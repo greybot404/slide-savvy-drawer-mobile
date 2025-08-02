@@ -42,76 +42,101 @@ export const FashionModule = () => {
 
   if (mode === 'select') {
     return (
-      <div className="p-6 flex flex-col items-center justify-center min-h-full">
-        <div className="w-full max-w-md space-y-6">
-          <div className="flex items-center justify-between w-full">
-            <h2 className="text-2xl font-semibold text-gray-900">Fashion Intelligence</h2>
-            {showScanner && (
-              <button
-                onClick={() => setMode('scanner')}
-                className="p-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors"
-              >
-                <Scan className="w-5 h-5" />
-              </button>
-            )}
-          </div>
+      <div className="p-6 min-h-full">
+        {/* Header with scanner */}
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold text-foreground">Featured Fashion</h1>
+          {showScanner && (
+            <button
+              onClick={() => setMode('scanner')}
+              className="p-3 bg-foreground text-background rounded-xl hover:opacity-90 transition-colors"
+            >
+              <Scan className="w-5 h-5" />
+            </button>
+          )}
+        </div>
 
-          <div className="space-y-4">
+        {/* Wardrobe Card - Top */}
+        <div className="mb-8">
+          <div 
+            className="relative h-48 bg-gradient-to-br from-muted to-muted-foreground/20 rounded-2xl overflow-hidden cursor-pointer transform hover:scale-105 transition-transform duration-300"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6">
+              <div className="flex items-center space-x-3 mb-2">
+                <Shirt className="w-6 h-6 text-white" />
+                <h2 className="text-2xl font-bold text-white">Wardrobe</h2>
+              </div>
+              <p className="text-white/80 text-sm">Manage your clothing collection</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Categories Section */}
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Categories</h2>
+          
+          <div className="grid grid-cols-2 gap-4">
+            {/* Outfit Review */}
             <button
               onClick={() => setMode('review')}
-              className="w-full bg-white border border-gray-200 rounded-2xl p-6 text-left hover:bg-gray-50 transition-all duration-300"
+              className="relative h-32 bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
             >
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 w-full">
+                <div className="flex items-center space-x-2 mb-1">
+                  <Sparkles className="w-4 h-4 text-white" />
+                  <h3 className="font-semibold text-white text-sm">Outfit Review</h3>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">Outfit Review</h3>
-                  <p className="text-sm text-gray-600">Get a critical score on your current outfit</p>
-                </div>
+                <p className="text-white/80 text-xs">Get style feedback</p>
               </div>
             </button>
 
+            {/* Fragrance */}
             <button
               onClick={() => setMode('fragrance')}
-              className="w-full bg-white border border-gray-200 rounded-2xl p-6 text-left hover:bg-gray-50 transition-all duration-300"
+              className="relative h-32 bg-gradient-to-br from-accent/10 to-accent/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
             >
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 w-full">
+                <div className="flex items-center space-x-2 mb-1">
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M7 17v5h10v-5"/>
                     <path d="M12 2l4 4-4 4-4-4z"/>
                     <path d="M12 10v7"/>
                   </svg>
+                  <h3 className="font-semibold text-white text-sm">Fragrance</h3>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">Fragrance</h3>
-                  <p className="text-sm text-gray-600">Get perfume recommendations for occasions</p>
-                </div>
+                <p className="text-white/80 text-xs">Scent recommendations</p>
               </div>
             </button>
 
-            <button className="w-full bg-white border border-gray-200 rounded-2xl p-6 text-left hover:bg-gray-50 transition-all duration-300">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
-                  <Search className="w-6 h-6 text-white" />
+            {/* Outfit Finder */}
+            <button className="relative h-32 bg-gradient-to-br from-secondary/10 to-secondary/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 w-full">
+                <div className="flex items-center space-x-2 mb-1">
+                  <Search className="w-4 h-4 text-white" />
+                  <h3 className="font-semibold text-white text-sm">Outfit Finder</h3>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">Outfit Finder</h3>
-                  <p className="text-sm text-gray-600">Find similar items including thrift options</p>
-                </div>
+                <p className="text-white/80 text-xs">Find similar items</p>
               </div>
             </button>
 
-            <button className="w-full bg-white border border-gray-200 rounded-2xl p-6 text-left hover:bg-gray-50 transition-all duration-300">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
-                  <Upload className="w-6 h-6 text-white" />
+            {/* Personal Stylist */}
+            <button className="relative h-32 bg-gradient-to-br from-muted-foreground/10 to-muted-foreground/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 w-full">
+                <div className="flex items-center space-x-2 mb-1">
+                  <Eye className="w-4 h-4 text-white" />
+                  <h3 className="font-semibold text-white text-sm">Personal Stylist</h3>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">Personal Stylist</h3>
-                  <p className="text-sm text-gray-600">Get an outfit suggestion for an occasion</p>
-                </div>
+                <p className="text-white/80 text-xs">Style consultation</p>
               </div>
             </button>
           </div>
