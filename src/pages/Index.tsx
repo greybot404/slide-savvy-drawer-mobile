@@ -143,34 +143,7 @@ const Index = () => {
       {/* Bottom Navigation */}
       <nav className="bg-white border-t border-gray-100 px-6 py-4">
         <div className="flex items-center justify-around">
-          {bottomNavItems.slice(0, 2).map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveModule(item.id)}
-              className="flex flex-col items-center space-y-2 transition-all duration-200"
-            >
-              <div className={`w-6 h-6 flex items-center justify-center ${
-                activeModule === item.id ? 'text-black' : 'text-gray-400'
-              }`}>
-                <item.icon className="w-6 h-6" strokeWidth={1.5} />
-              </div>
-              <span className={`text-xs font-medium ${
-                activeModule === item.id ? 'text-black' : 'text-gray-400'
-              }`}>
-                {item.label}
-              </span>
-            </button>
-          ))}
-          
-          {/* Central Circle Button */}
-          <button
-            onClick={() => setActiveModule('body')}
-            className="w-14 h-14 bg-black rounded-full flex items-center justify-center transition-all duration-200"
-          >
-            <Scan className="w-7 h-7 text-white" strokeWidth={1.5} />
-          </button>
-          
-          {bottomNavItems.slice(2, 4).map((item) => (
+          {bottomNavItems.slice(0, 4).map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveModule(item.id)}
