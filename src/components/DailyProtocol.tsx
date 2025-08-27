@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Search, Utensils, Power, Check, Activity, Heart, Brain, Dumbbell } from "lucide-react";
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { FoodCalorieTracker } from "./FoodCalorieTracker";
 
 export const DailyProtocol = () => {
   const [scannedFood, setScannedFood] = useState<string | null>(null);
   const [showQuitModal, setShowQuitModal] = useState(false);
+  const [showFoodTracker, setShowFoodTracker] = useState(false);
   const [dailyTasks, setDailyTasks] = useState([
     { task: "Morning Hydration", description: "Drink 500ml of water upon waking", completed: false },
     { task: "Skincare Routine", description: "Complete morning skincare regimen", completed: false },
@@ -40,8 +42,7 @@ export const DailyProtocol = () => {
   ];
 
   const handleFoodScan = () => {
-    setScannedFood("Apple - 95 calories");
-    setTimeout(() => setScannedFood(null), 3000);
+    setShowFoodTracker(true);
   };
 
   const toggleTaskCompletion = (index: number) => {
@@ -92,11 +93,6 @@ export const DailyProtocol = () => {
             className="p-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors shadow-lg relative"
           >
             <Utensils className="w-6 h-6" />
-            {scannedFood && (
-              <div className="absolute top-16 right-0 bg-white border border-gray-200 rounded-lg p-3 shadow-lg whitespace-nowrap z-10">
-                <p className="text-sm font-medium">{scannedFood}</p>
-              </div>
-            )}
           </button>
         </div>
       </div>
@@ -219,6 +215,11 @@ export const DailyProtocol = () => {
             </button>
           </div>
         </div>
+      )}
+
+      {/* Food Calorie Tracker Modal */}
+      {showFoodTracker && (
+        <FoodCalorieTracker onClose={() => setShowFoodTracker(false)} />
       )}
     </div>
   );
