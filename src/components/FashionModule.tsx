@@ -87,34 +87,32 @@ export const FashionModule = () => {
               {/* Outfit Review */}
               <button
                 onClick={() => setMode('review')}
-                className="relative flex-shrink-0 w-64 h-32 bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
+                className="relative flex-shrink-0 w-64 h-32 bg-primary rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group hover:bg-primary/90"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center space-x-2 mb-1">
-                    <Sparkles className="w-4 h-4 text-white" />
-                    <h3 className="font-semibold text-white text-sm">Outfit Review</h3>
+                    <Sparkles className="w-4 h-4 text-primary-foreground" />
+                    <h3 className="font-semibold text-primary-foreground text-sm">Outfit Review</h3>
                   </div>
-                  <p className="text-white/80 text-xs">Get style feedback</p>
+                  <p className="text-primary-foreground/80 text-xs">Get style feedback</p>
                 </div>
               </button>
 
               {/* Fragrance */}
               <button
                 onClick={() => setMode('fragrance')}
-                className="relative flex-shrink-0 w-64 h-32 bg-gradient-to-br from-accent/10 to-accent/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group"
+                className="relative flex-shrink-0 w-64 h-32 bg-secondary rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group hover:bg-secondary/90"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center space-x-2 mb-1">
-                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg className="w-4 h-4 text-secondary-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M7 17v5h10v-5"/>
                       <path d="M12 2l4 4-4 4-4-4z"/>
                       <path d="M12 10v7"/>
                     </svg>
-                    <h3 className="font-semibold text-white text-sm">Fragrance</h3>
+                    <h3 className="font-semibold text-secondary-foreground text-sm">Fragrance</h3>
                   </div>
-                  <p className="text-white/80 text-xs">Scent recommendations</p>
+                  <p className="text-secondary-foreground/80 text-xs">Scent recommendations</p>
                 </div>
               </button>
             </div>
@@ -122,26 +120,24 @@ export const FashionModule = () => {
             {/* Second Row - Horizontally Scrollable */}
             <div className="flex space-x-4 overflow-x-auto pb-2 scrollbar-hide">
               {/* Outfit Finder */}
-              <button className="relative flex-shrink-0 w-64 h-32 bg-gradient-to-br from-secondary/10 to-secondary/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <button className="relative flex-shrink-0 w-64 h-32 bg-primary rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group hover:bg-primary/90">
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center space-x-2 mb-1">
-                    <Search className="w-4 h-4 text-white" />
-                    <h3 className="font-semibold text-white text-sm">Outfit Finder</h3>
+                    <Search className="w-4 h-4 text-primary-foreground" />
+                    <h3 className="font-semibold text-primary-foreground text-sm">Outfit Finder</h3>
                   </div>
-                  <p className="text-white/80 text-xs">Find similar items</p>
+                  <p className="text-primary-foreground/80 text-xs">Find similar items</p>
                 </div>
               </button>
 
               {/* Personal Stylist */}
-              <button className="relative flex-shrink-0 w-64 h-32 bg-gradient-to-br from-muted-foreground/10 to-muted-foreground/20 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <button className="relative flex-shrink-0 w-64 h-32 bg-secondary rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group hover:bg-secondary/90">
                 <div className="absolute bottom-0 left-0 p-4 w-full">
                   <div className="flex items-center space-x-2 mb-1">
-                    <Eye className="w-4 h-4 text-white" />
-                    <h3 className="font-semibold text-white text-sm">Personal Stylist</h3>
+                    <Eye className="w-4 h-4 text-secondary-foreground" />
+                    <h3 className="font-semibold text-secondary-foreground text-sm">Personal Stylist</h3>
                   </div>
-                  <p className="text-white/80 text-xs">Style consultation</p>
+                  <p className="text-secondary-foreground/80 text-xs">Style consultation</p>
                 </div>
               </button>
             </div>

@@ -151,16 +151,19 @@ const Index = () => {
             >
               <div className={`p-2 rounded-xl transition-all duration-200 ${
                 activeModule === item.id 
-                  ? 'bg-black text-white shadow-lg' 
-                  : 'text-gray-400 hover:text-gray-600'
+                  ? 'bg-primary text-primary-foreground shadow-lg' 
+                  : 'text-muted-foreground hover:text-foreground'
               }`}>
                 <item.icon className="w-5 h-5" strokeWidth={1.5} />
               </div>
-              <span className={`text-xs font-medium ${
-                activeModule === item.id ? 'text-black' : 'text-gray-400'
+              <span className={`text-xs font-medium transition-all duration-200 ${
+                activeModule === item.id ? 'text-primary' : 'text-muted-foreground'
               }`}>
                 {item.label}
               </span>
+              {activeModule === item.id && (
+                <div className="absolute -bottom-1 w-6 h-1 bg-primary rounded-full" />
+              )}
             </button>
           ))}
         </div>

@@ -190,7 +190,7 @@ export const BodyModule = ({ selectedGender }: BodyModuleProps) => {
                 </div>
                 <a
                   href={product.link}
-                  className="p-2 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="p-2 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -228,7 +228,7 @@ export const BodyModule = ({ selectedGender }: BodyModuleProps) => {
                   cx="64"
                   cy="64"
                   r="56"
-                  stroke="#000000"
+                  stroke="hsl(219 82% 47%)"
                   strokeWidth="8"
                   fill="none"
                   strokeDasharray="351.86"
@@ -260,9 +260,9 @@ export const BodyModule = ({ selectedGender }: BodyModuleProps) => {
               <div key={index} className="flex justify-between items-center">
                 <span className="text-sm text-gray-600">{detail.metric}</span>
                 <div className="flex items-center space-x-2">
-                  <div className="w-16 bg-gray-200 rounded-full h-2">
+                  <div className="w-16 bg-muted rounded-full h-2">
                     <div 
-                      className="bg-black h-2 rounded-full" 
+                      className="bg-primary h-2 rounded-full" 
                       style={{ width: `${detail.score}%` }}
                     ></div>
                   </div>
@@ -344,12 +344,12 @@ export const BodyModule = ({ selectedGender }: BodyModuleProps) => {
             <div className="space-y-3">
               <button
                 onClick={handleUpload}
-                className="w-full bg-black text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-medium hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 <Upload className="w-4 h-4 inline mr-2" />
                 Upload Photo
               </button>
-              <button className="w-full border border-input bg-background hover:bg-accent hover:text-accent-foreground py-3 rounded-xl font-medium transition-all duration-200">
+              <button className="w-full border border-primary bg-background text-primary hover:bg-primary hover:text-primary-foreground py-3 rounded-xl font-medium transition-all duration-200">
                 <Camera className="w-4 h-4 inline mr-2" />
                 Use Camera
               </button>

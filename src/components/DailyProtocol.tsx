@@ -81,16 +81,16 @@ export const DailyProtocol = () => {
           <h2 className="text-2xl font-semibold text-gray-900">Daily Protocol</h2>
           <p className="text-gray-600">Stay on track with your goals</p>
         </div>
-        <div className="flex space-x-3">
+          <div className="flex space-x-3">
           <button
             onClick={() => setShowQuitModal(true)}
-            className="p-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="p-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <Power className="w-6 h-6" />
           </button>
           <button
             onClick={handleFoodScan}
-            className="p-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl relative"
+            className="p-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl relative"
           >
             <Utensils className="w-6 h-6" />
           </button>
@@ -98,27 +98,34 @@ export const DailyProtocol = () => {
       </div>
 
       {/* Daily Progress - Card Style */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Daily Progress</h3>
+      <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+        <h3 className="text-lg font-semibold text-card-foreground mb-4">Daily Progress</h3>
         <div className="grid gap-4">
           {dailyTasks.map((item, index) => (
-            <div key={index} className="bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-all duration-200">
+            <div 
+              key={index} 
+              className={`border rounded-xl p-4 transition-all duration-200 ${
+                item.completed 
+                  ? 'bg-primary text-primary-foreground border-primary shadow-lg' 
+                  : 'bg-gradient-to-r from-muted to-muted/50 border-border hover:border-primary/20 hover:shadow-md'
+              }`}
+            >
               <div className="flex items-start space-x-4">
                 <button
                   onClick={() => toggleTaskCompletion(index)}
                   className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
                     item.completed 
-                      ? 'bg-black border-black text-white shadow-md' 
-                      : 'border-gray-300 hover:border-black hover:shadow-sm'
+                      ? 'bg-primary-foreground border-primary-foreground text-primary shadow-md' 
+                      : 'border-muted-foreground hover:border-primary hover:shadow-sm'
                   }`}
                 >
                   {item.completed && <Check className="w-4 h-4" />}
                 </button>
                 <div className="flex-1">
-                  <h4 className={`font-medium ${item.completed ? 'text-gray-500 line-through' : 'text-gray-900'}`}>
+                  <h4 className={`font-medium ${item.completed ? 'text-primary-foreground' : 'text-card-foreground'}`}>
                     {item.task}
                   </h4>
-                  <p className={`text-sm ${item.completed ? 'text-gray-400 line-through' : 'text-gray-600'}`}>
+                  <p className={`text-sm ${item.completed ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
                     {item.description}
                   </p>
                 </div>
@@ -129,18 +136,22 @@ export const DailyProtocol = () => {
       </div>
 
       {/* Quick Actions/Shortcuts */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+      <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+        <h3 className="text-lg font-semibold text-card-foreground mb-4">Quick Actions</h3>
         <div className="grid grid-cols-2 gap-4">
           {shortcuts.map((shortcut, index) => (
             <button
               key={index}
-              className="flex items-center space-x-3 p-4 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 border border-gray-200 rounded-xl transition-all duration-200 hover:shadow-md group"
+              className={`flex items-center space-x-3 p-4 rounded-xl transition-all duration-200 hover:shadow-lg group ${
+                index < 2 
+                  ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                  : 'bg-secondary text-secondary-foreground hover:bg-secondary/90'
+              }`}
             >
-              <div className="p-3 bg-black text-white rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-200">
+              <div className="p-3 bg-white/20 text-current rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-200">
                 <shortcut.icon className="w-5 h-5" />
               </div>
-              <span className="font-medium text-gray-900">{shortcut.label}</span>
+              <span className="font-medium">{shortcut.label}</span>
             </button>
           ))}
         </div>
@@ -173,9 +184,9 @@ export const DailyProtocol = () => {
                 <Radar
                   name="Score"
                   dataKey="score"
-                  stroke="#000000"
-                  fill="#000000"
-                  fillOpacity={0.1}
+                  stroke="hsl(219 82% 47%)"
+                  fill="hsl(219 82% 47%)"
+                  fillOpacity={0.2}
                   strokeWidth={2}
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
