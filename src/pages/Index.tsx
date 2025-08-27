@@ -147,12 +147,14 @@ const Index = () => {
             <button
               key={item.id}
               onClick={() => setActiveModule(item.id)}
-              className="flex flex-col items-center space-y-2 transition-all duration-200"
+              className="flex flex-col items-center space-y-2 transition-all duration-200 relative"
             >
-              <div className={`w-6 h-6 flex items-center justify-center ${
-                activeModule === item.id ? 'text-black' : 'text-gray-400'
+              <div className={`p-2 rounded-xl transition-all duration-200 ${
+                activeModule === item.id 
+                  ? 'bg-black text-white shadow-lg' 
+                  : 'text-gray-400 hover:text-gray-600'
               }`}>
-                <item.icon className="w-6 h-6" strokeWidth={1.5} />
+                <item.icon className="w-5 h-5" strokeWidth={1.5} />
               </div>
               <span className={`text-xs font-medium ${
                 activeModule === item.id ? 'text-black' : 'text-gray-400'

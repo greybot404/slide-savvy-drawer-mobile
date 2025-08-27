@@ -267,10 +267,10 @@ export const FitnessModule = () => {
               <button
                 key={day.day}
                 onClick={() => setSelectedDay(day.day)}
-                className={`flex flex-col items-center py-3 px-2 rounded-xl transition-colors ${
+                className={`flex flex-col items-center py-3 px-2 rounded-xl transition-all duration-200 ${
                   selectedDay === day.day 
-                    ? 'bg-black text-white' 
-                    : 'text-gray-600 hover:text-black'
+                    ? 'bg-black text-white shadow-lg' 
+                    : 'text-gray-600 hover:text-black hover:bg-gray-100'
                 }`}
               >
                 <span className="text-xs font-medium">{day.day}</span>

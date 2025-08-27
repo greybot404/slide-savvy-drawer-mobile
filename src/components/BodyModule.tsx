@@ -190,7 +190,7 @@ export const BodyModule = ({ selectedGender }: BodyModuleProps) => {
                 </div>
                 <a
                   href={product.link}
-                  className="p-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+                  className="p-2 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -344,12 +344,12 @@ export const BodyModule = ({ selectedGender }: BodyModuleProps) => {
             <div className="space-y-3">
               <button
                 onClick={handleUpload}
-                className="w-full bg-black text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-all duration-200"
+                className="w-full bg-black text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 <Upload className="w-4 h-4 inline mr-2" />
                 Upload Photo
               </button>
-              <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-medium transition-colors">
+              <button className="w-full border border-input bg-background hover:bg-accent hover:text-accent-foreground py-3 rounded-xl font-medium transition-all duration-200">
                 <Camera className="w-4 h-4 inline mr-2" />
                 Use Camera
               </button>
