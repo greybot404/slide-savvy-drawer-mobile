@@ -45,7 +45,7 @@ export const FashionModule = () => {
       <div className="p-6 min-h-full">
         {/* Header with scanner */}
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Featured Fashion</h1>
+          <h1 className="text-3xl font-bold text-foreground">Featured Attire</h1>
           {showScanner && (
             <button
               onClick={() => setMode('scanner')}

@@ -17,7 +17,7 @@ export const DailyProtocol = () => {
   // Mock data for the spider web chart - these would come from actual app data
   const overallScoreData = [
     { subject: 'Fitness', score: 75, fullMark: 100 },
-    { subject: 'Fashion', score: 60, fullMark: 100 },
+    { subject: 'Attire', score: 60, fullMark: 100 },
     { subject: 'Body', score: 80, fullMark: 100 },
     { subject: 'Presence', score: 70, fullMark: 100 },
     { subject: 'Daily', score: 85, fullMark: 100 },

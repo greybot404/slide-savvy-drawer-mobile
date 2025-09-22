@@ -35,7 +35,7 @@ const Index = () => {
   const bottomNavItems = [
     { id: "home", icon: HomeIcon, label: "Home" },
     { id: "fitness", icon: Dumbbell, label: "Fitness" },
-    { id: "fashion", icon: Shirt, label: "Fashion" },
+    { id: "fashion", icon: Shirt, label: "Attire" },
     { id: "body", icon: Scan, label: "Body" },
     { id: "presence", icon: Brain, label: "Presence" },
   ];
