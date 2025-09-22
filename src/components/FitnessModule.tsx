@@ -252,7 +252,7 @@ export const FitnessModule = () => {
 
   if (step === 'plan') {
     return (
-      <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
+      <div className="p-6 space-y-4 bg-gray-50 min-h-screen">
         {/* Top Section */}
         <div className="flex items-center justify-between">
           <div className="space-y-1">
@@ -296,21 +296,21 @@ export const FitnessModule = () => {
           </div>
 
           {/* Right Side Content */}
-          <div className="flex-1 space-y-6">
+          <div className="flex-1 space-y-4">
             {/* Your Plan Section */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">Your Plan</h2>
                 <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
               </div>
 
               {/* Workout Cards */}
-              <div className="flex space-x-4 overflow-x-auto">
+              <div className="flex space-x-3 overflow-x-auto pb-2">
                 {dailyWorkouts[selectedDay]?.map((workout, index) => (
                   <button 
                     key={index}
                     onClick={handleWorkoutClick}
-                    className={`relative min-w-[280px] h-[180px] bg-gradient-to-br ${workout.gradient} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
+                    className={`relative min-w-[260px] h-[160px] bg-gradient-to-br ${workout.gradient} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
                   >
                     <div className="absolute inset-0 bg-black/20" />
                     <img 
@@ -335,15 +335,15 @@ export const FitnessModule = () => {
             </div>
 
             {/* Collections Section */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">Collections</h2>
                 <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
               </div>
 
-              <div className="flex space-x-4 overflow-x-auto">
+              <div className="flex space-x-3 overflow-x-auto pb-2">
                 {/* Full Body Collection */}
-                <div className="relative min-w-[240px] h-[160px] bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl overflow-hidden flex-shrink-0">
+                <div className="relative min-w-[220px] h-[140px] bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl overflow-hidden flex-shrink-0">
                   <div className="absolute inset-0 bg-black/20" />
                   <img 
                     src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
@@ -364,7 +364,7 @@ export const FitnessModule = () => {
                 </div>
 
                 {/* Leg Day Collection */}
-                <div className="relative min-w-[240px] h-[160px] bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl overflow-hidden flex-shrink-0">
+                <div className="relative min-w-[220px] h-[140px] bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl overflow-hidden flex-shrink-0">
                   <div className="absolute inset-0 bg-black/20" />
                   <img 
                     src="/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png"
@@ -382,7 +382,7 @@ export const FitnessModule = () => {
                 </div>
 
                 {/* Core Focus Collection */}
-                <div className="relative min-w-[240px] h-[160px] bg-gradient-to-br from-teal-600 to-cyan-700 rounded-2xl overflow-hidden flex-shrink-0">
+                <div className="relative min-w-[220px] h-[140px] bg-gradient-to-br from-teal-600 to-cyan-700 rounded-2xl overflow-hidden flex-shrink-0">
                   <div className="absolute inset-0 bg-black/20" />
                   <img 
                     src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
