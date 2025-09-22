@@ -254,9 +254,19 @@ export const FitnessModule = () => {
     return (
       <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
         {/* Top Section */}
-        <div className="space-y-1">
-          <p className="text-gray-400 text-sm">Hi, Alberto</p>
-          <h1 className="text-2xl font-bold text-black">LET'S KICK OFF YOUR DAY</h1>
+        <div className="flex items-center justify-between">
+          <div className="space-y-1">
+            <p className="text-gray-400 text-sm">Hi, Alberto</p>
+            <h1 className="text-2xl font-bold text-black">LET'S KICK OFF YOUR DAY</h1>
+          </div>
+          {showWeeklyScanner && (
+            <button
+              onClick={() => setStep('upload-current')}
+              className="p-3 bg-primary text-primary-foreground rounded-xl hover:opacity-90 transition-colors"
+            >
+              <Scan className="w-5 h-5" />
+            </button>
+          )}
         </div>
 
         {/* Main Layout with Vertical Weekday Selector */}
@@ -291,17 +301,7 @@ export const FitnessModule = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">Your Plan</h2>
-                <div className="flex items-center space-x-4">
-                  <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
-                  {showWeeklyScanner && (
-                    <button
-                      onClick={() => setStep('upload-current')}
-                      className="p-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
-                    >
-                      <Scan className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
+                <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
               </div>
 
               {/* Workout Cards */}
