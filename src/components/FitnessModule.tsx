@@ -252,21 +252,23 @@ export const FitnessModule = () => {
 
   if (step === 'plan') {
     return (
-      <div className="p-6 space-y-4 bg-gray-50 min-h-screen">
-        {/* Top Section */}
+      <div className="p-6 space-y-8 bg-gray-50 min-h-screen">
+        {/* Top Section with Greeting and Scanner */}
         <div className="flex items-center justify-between">
-          <div className="space-y-1">
-            <p className="text-gray-400 text-sm">Hi, Alberto</p>
-            <h1 className="text-2xl font-bold text-black">LET'S KICK OFF YOUR DAY</h1>
+          <div className="space-y-2">
+            <div className="flex items-center gap-4">
+              <p className="text-gray-400 text-sm">Hi, Alberto</p>
+              {showWeeklyScanner && (
+                <button
+                  onClick={() => setStep('upload-current')}
+                  className="p-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-colors"
+                >
+                  <Scan className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+            <h1 className="text-3xl font-bold text-black leading-tight">LET'S KICK OFF YOUR DAY</h1>
           </div>
-          {showWeeklyScanner && (
-            <button
-              onClick={() => setStep('upload-current')}
-              className="p-3 bg-primary text-primary-foreground rounded-xl hover:opacity-90 transition-colors"
-            >
-              <Scan className="w-5 h-5" />
-            </button>
-          )}
         </div>
 
         {/* Main Layout with Vertical Weekday Selector */}
