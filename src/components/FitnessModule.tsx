@@ -252,7 +252,7 @@ export const FitnessModule = () => {
 
   if (step === 'plan') {
     return (
-      <div className="p-6 space-y-8 bg-gray-50 min-h-screen">
+      <div className="p-6 space-y-4 bg-gray-50 min-h-full">
         {/* Top Section with Greeting and Scanner */}
         <div className="flex items-center justify-between">
           <div className="space-y-2">
@@ -296,7 +296,7 @@ export const FitnessModule = () => {
           </div>
 
           {/* Right Side Content */}
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-2">
             {/* Your Plan Section */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
