@@ -305,12 +305,12 @@ export const FitnessModule = () => {
               </div>
 
               {/* Workout Cards */}
-              <div className="flex space-x-3 overflow-x-auto pb-2">
+              <div className="flex space-x-4 overflow-x-auto pb-2">
                 {dailyWorkouts[selectedDay]?.map((workout, index) => (
                   <button 
                     key={index}
                     onClick={handleWorkoutClick}
-                    className={`relative min-w-[260px] h-[160px] bg-gradient-to-br ${workout.gradient} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
+                    className={`relative min-w-[320px] h-[200px] bg-gradient-to-br ${workout.gradient} rounded-3xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
                   >
                     <div className="absolute inset-0 bg-black/20" />
                     <img 
