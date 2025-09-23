@@ -252,7 +252,7 @@ export const FitnessModule = () => {
 
   if (step === 'plan') {
     return (
-      <div className="p-6 space-y-4 bg-gray-50 min-h-full">
+      <div className="p-6 space-y-6 bg-gray-50 min-h-full">
         {/* Top Section with Greeting and Scanner */}
         <div className="flex items-center justify-between">
           <div className="space-y-2">
@@ -269,135 +269,129 @@ export const FitnessModule = () => {
           )}
         </div>
 
-        {/* Main Layout with Vertical Weekday Selector */}
-        <div className="flex space-x-4">
-          {/* Left Side Vertical Weekday Selector */}
-          <div className="bg-white rounded-2xl p-3 flex flex-col justify-center space-y-2 w-[80px] shadow-sm">
-            {weeklyPlan.map((day) => (
-              <button
-                key={day.day}
-                onClick={() => setSelectedDay(day.day)}
-                className={`flex flex-col items-center py-3 px-2 rounded-xl transition-all duration-200 ${
-                  selectedDay === day.day 
-                    ? 'bg-black text-white shadow-lg' 
-                    : 'text-gray-600 hover:text-black hover:bg-gray-100'
-                }`}
-              >
-                <span className="text-xs font-medium">{day.day}</span>
-                <div className={`w-2 h-2 rounded-full mt-1 ${
-                  day.completed 
-                    ? 'bg-green-500' 
-                    : selectedDay === day.day 
-                      ? 'bg-red-500' 
-                      : 'bg-gray-300'
-                }`} />
-              </button>
-            ))}
+        {/* Your Plan Section */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-gray-900">Your Plan</h2>
+            <button className="text-sm text-gray-500 hover:text-gray-900">See all</button>
           </div>
 
-          {/* Right Side Content */}
-          <div className="flex-1 space-y-2">
-            {/* Your Plan Section */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Your Plan</h2>
-                <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
-              </div>
+          {/* Main Layout with Vertical Weekday Selector and Cards */}
+          <div className="flex space-x-4">
+            {/* Left Side Vertical Weekday Selector */}
+            <div className="bg-gray-800 rounded-3xl p-4 flex flex-col space-y-3 w-[100px]">
+              {weeklyPlan.map((day) => (
+                <button
+                  key={day.day}
+                  onClick={() => setSelectedDay(day.day)}
+                  className={`flex flex-col items-center py-2 px-3 rounded-xl transition-all duration-200 ${
+                    selectedDay === day.day 
+                      ? 'text-white' 
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  <div className={`w-2 h-2 rounded-full mb-1 ${
+                    day.completed 
+                      ? 'bg-green-500' 
+                      : selectedDay === day.day 
+                        ? 'bg-red-500' 
+                        : 'bg-gray-600'
+                  }`} />
+                  <span className="text-sm font-medium">{day.day}</span>
+                </button>
+              ))}
+            </div>
 
-              {/* Workout Cards */}
-              <div className="flex space-x-3 overflow-x-auto pb-2">
-                {dailyWorkouts[selectedDay]?.map((workout, index) => (
-                  <button 
-                    key={index}
-                    onClick={handleWorkoutClick}
-                    className={`relative min-w-[260px] h-[160px] bg-gradient-to-br ${workout.gradient} rounded-2xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
-                  >
-                    <div className="absolute inset-0 bg-black/20" />
-                    <img 
-                      src={workout.image}
-                      alt={workout.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-80"
-                    />
-                    <div className="absolute top-4 left-4 flex space-x-2">
-                      {workout.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h3 className="text-xl font-bold mb-1">{workout.title}</h3>
-                      <p className="text-sm opacity-90">{workout.duration}</p>
-                    </div>
-                  </button>
-                ))}
+            {/* Right Side Workout Cards */}
+            <div className="flex-1 flex space-x-4 overflow-x-auto">
+              {dailyWorkouts[selectedDay]?.map((workout, index) => (
+                <button 
+                  key={index}
+                  onClick={handleWorkoutClick}
+                  className={`relative min-w-[300px] h-[200px] bg-gradient-to-br ${workout.gradient} rounded-3xl overflow-hidden hover:scale-105 transition-transform cursor-pointer flex-shrink-0`}
+                >
+                  <div className="absolute inset-0 bg-black/30" />
+                  <img 
+                    src={workout.image}
+                    alt={workout.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-70"
+                  />
+                  <div className="absolute top-4 left-4 flex space-x-2">
+                    {workout.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-2xl font-bold mb-1 leading-tight">{workout.title}</h3>
+                    <p className="text-sm opacity-90">{workout.duration}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Collections Section */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-gray-900">Collections</h2>
+            <button className="text-sm text-gray-500 hover:text-gray-900">See all</button>
+          </div>
+
+          <div className="flex space-x-4 overflow-x-auto">
+            {/* Basics Collection */}
+            <div className="relative min-w-[260px] h-[180px] bg-gradient-to-br from-gray-600 to-gray-800 rounded-3xl overflow-hidden flex-shrink-0">
+              <div className="absolute inset-0 bg-black/30" />
+              <img 
+                src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
+                alt="Basics workout"
+                className="absolute inset-0 w-full h-full object-cover opacity-70"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                  Easy
+                </span>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-2xl font-bold">BASICS</h3>
               </div>
             </div>
 
-            {/* Collections Section */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Collections</h2>
-                <button className="text-sm text-gray-600 hover:text-gray-900">See all</button>
+            {/* Boxing Collection */}
+            <div className="relative min-w-[260px] h-[180px] bg-gradient-to-br from-red-600 to-orange-700 rounded-3xl overflow-hidden flex-shrink-0">
+              <div className="absolute inset-0 bg-black/30" />
+              <img 
+                src="/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png"
+                alt="Boxing workout"
+                className="absolute inset-0 w-full h-full object-cover opacity-70"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                  Medium
+                </span>
               </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-2xl font-bold">BOXING</h3>
+              </div>
+            </div>
 
-              <div className="flex space-x-3 overflow-x-auto pb-2">
-                {/* Full Body Collection */}
-                <div className="relative min-w-[220px] h-[140px] bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl overflow-hidden flex-shrink-0">
-                  <div className="absolute inset-0 bg-black/20" />
-                  <img 
-                    src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
-                    alt="Full Body workout"
-                    className="absolute inset-0 w-full h-full object-cover opacity-70"
-                  />
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
-                      Easy
-                    </span>
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
-                      Medium
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-bold">Full Body</h3>
-                  </div>
-                </div>
-
-                {/* Leg Day Collection */}
-                <div className="relative min-w-[220px] h-[140px] bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl overflow-hidden flex-shrink-0">
-                  <div className="absolute inset-0 bg-black/20" />
-                  <img 
-                    src="/lovable-uploads/8c6cb712-ec99-4e30-8631-262e4a4f1421.png"
-                    alt="Leg Day workout"
-                    className="absolute inset-0 w-full h-full object-cover opacity-70"
-                  />
-                  <div className="absolute top-4 left-4 flex space-x-2">
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
-                      Strength
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-bold">Leg Day</h3>
-                  </div>
-                </div>
-
-                {/* Core Focus Collection */}
-                <div className="relative min-w-[220px] h-[140px] bg-gradient-to-br from-teal-600 to-cyan-700 rounded-2xl overflow-hidden flex-shrink-0">
-                  <div className="absolute inset-0 bg-black/20" />
-                  <img 
-                    src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
-                    alt="Core Focus workout"
-                    className="absolute inset-0 w-full h-full object-cover opacity-70"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-medium">
-                      Medium
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-lg font-bold">Core Focus</h3>
-                  </div>
-                </div>
+            {/* Core Focus Collection */}
+            <div className="relative min-w-[260px] h-[180px] bg-gradient-to-br from-teal-600 to-cyan-700 rounded-3xl overflow-hidden flex-shrink-0">
+              <div className="absolute inset-0 bg-black/30" />
+              <img 
+                src="/lovable-uploads/aa5baaf6-b22b-44dc-b182-4eb79dd302fc.png"
+                alt="Core Focus workout"
+                className="absolute inset-0 w-full h-full object-cover opacity-70"
+              />
+              <div className="absolute top-4 left-4">
+                <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                  Medium
+                </span>
+              </div>
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-2xl font-bold">CORE FOCUS</h3>
               </div>
             </div>
           </div>
